@@ -82,6 +82,8 @@ static void prvSetupHardware(void)
  * Public functions
  ****************************************************************************/
 
+	static char tmp_buff2[16];
+
 /**
  * @brief	main routine for example_lwip_tcpecho_sa_18xx43xx
  * @return	Function should not exit.
@@ -104,10 +106,10 @@ int main(void)
 	IP4_ADDR(&ipaddr, 0, 0, 0, 0);
 	IP4_ADDR(&netmask, 0, 0, 0, 0);
 #else
-	IP4_ADDR(&gw, 10, 1, 10, 1);
-	IP4_ADDR(&ipaddr, 10, 1, 10, 234);
+	IP4_ADDR(&gw, 192, 168, 153, 254);
+	IP4_ADDR(&ipaddr, 192, 168, 153, 153);
 	IP4_ADDR(&netmask, 255, 255, 255, 0);
-	APP_PRINT_IP(&ipaddr);
+	//APP_PRINT_IP(&ipaddr);
 #endif
 
 	/* Add netif interface for lpc17xx_8x */
@@ -119,6 +121,8 @@ int main(void)
 #if LWIP_DHCP
 	dhcp_start(&lpc_netif);
 #endif
+
+	DEBUGOUT("IP_ADDR    : %s\r\n", ipaddr_ntoa_r((const ip_addr_t *) &lpc_netif.ip_addr, tmp_buff2, 16));
 
 	/* Initialize and start application */
 	echo_init();

@@ -77,7 +77,7 @@
 #define LWIP_RAW                        1
 
 /* DHCP is ok, UDP is required with DHCP */
-#define LWIP_DHCP                       1
+#define LWIP_DHCP                       0
 #define LWIP_UDP                        1
 
 /* Hostname can be used */
