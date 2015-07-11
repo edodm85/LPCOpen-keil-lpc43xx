@@ -67,7 +67,7 @@ extern "C" {
 /** Board UART used for debug output and input using the DEBUG* macros. This
     is also the port used for Board_UARTPutChar, Board_UARTGetChar, and
 	Board_UARTPutSTR functions. */
-#define DEBUG_UART LPC_USART0
+#define DEBUG_UART LPC_USART2
 
 /**
  * @}
@@ -128,6 +128,18 @@ extern "C" {
 #define LED2_PIN_PORT_NUM               2
 #define LED2_PIN_BIT_NUM                5
 #define LED2_MODE_FUNC                  SCU_MODE_FUNC4
+/* LED3 (Red) - Pin P6_1 : GPIO3[0] */
+#define LED3_GPIO_PORT_NUM              3
+#define LED3_GPIO_BIT_NUM               0
+#define LED3_PIN_PORT_NUM               6
+#define LED3_PIN_BIT_NUM                1
+#define LED3_MODE_FUNC                  SCU_MODE_FUNC0
+/* LED4 (Blue) - Pin P6_2 : GPIO3[1] */
+#define LED4_GPIO_PORT_NUM              3
+#define LED4_GPIO_BIT_NUM               1
+#define LED4_PIN_PORT_NUM               6
+#define LED4_PIN_BIT_NUM                2
+#define LED4_MODE_FUNC                  SCU_MODE_FUNC0
 
 /**
  * @brief	Sets up board specific I2C interface

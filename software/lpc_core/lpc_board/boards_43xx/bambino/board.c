@@ -109,10 +109,16 @@ static void Board_LED_Init()
     Chip_GPIO_SetPinDIROutput(LPC_GPIO_PORT, LED1_GPIO_PORT_NUM, LED1_GPIO_BIT_NUM);
     Chip_SCU_PinMuxSet(LED2_PIN_PORT_NUM, LED2_PIN_BIT_NUM, (SCU_PINIO_FAST | LED2_MODE_FUNC));
     Chip_GPIO_SetPinDIROutput(LPC_GPIO_PORT, LED2_GPIO_PORT_NUM, LED2_GPIO_BIT_NUM);
+	  Chip_SCU_PinMuxSet(LED3_PIN_PORT_NUM, LED3_PIN_BIT_NUM, (SCU_PINIO_FAST | LED3_MODE_FUNC));
+    Chip_GPIO_SetPinDIROutput(LPC_GPIO_PORT, LED3_GPIO_PORT_NUM, LED3_GPIO_BIT_NUM);
+	  Chip_SCU_PinMuxSet(LED4_PIN_PORT_NUM, LED4_PIN_BIT_NUM, (SCU_PINIO_FAST | LED4_MODE_FUNC));
+    Chip_GPIO_SetPinDIROutput(LPC_GPIO_PORT, LED4_GPIO_PORT_NUM, LED4_GPIO_BIT_NUM);
 
     /* Set initial states to off (true to disable) */
     Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED1_GPIO_PORT_NUM, LED1_GPIO_BIT_NUM, (bool) true);
     Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED2_GPIO_PORT_NUM, LED2_GPIO_BIT_NUM, (bool) true);
+	  Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED3_GPIO_PORT_NUM, LED3_GPIO_BIT_NUM, (bool) true);
+    Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED4_GPIO_PORT_NUM, LED4_GPIO_BIT_NUM, (bool) true);
 }
 
 void Board_LED_Set(uint8_t LEDNumber, bool On)
@@ -123,6 +129,12 @@ void Board_LED_Set(uint8_t LEDNumber, bool On)
 	else if (LEDNumber == 1) {
 		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED2_GPIO_PORT_NUM, LED2_GPIO_BIT_NUM, (bool) !On);
 	}
+	else if (LEDNumber == 2) {
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED3_GPIO_PORT_NUM, LED3_GPIO_BIT_NUM, (bool) !On);
+	}
+	else if (LEDNumber == 3) {
+		Chip_GPIO_SetPinState(LPC_GPIO_PORT, LED4_GPIO_PORT_NUM, LED4_GPIO_BIT_NUM, (bool) !On);
+	}
 }
 
 bool Board_LED_Test(uint8_t LEDNumber)
@@ -132,6 +144,12 @@ bool Board_LED_Test(uint8_t LEDNumber)
 	}
 	else if (LEDNumber == 1) {
 		return (bool) !Chip_GPIO_GetPinState(LPC_GPIO_PORT, LED2_GPIO_PORT_NUM, LED2_GPIO_BIT_NUM);
+	}
+	else if (LEDNumber == 2) {
+		return (bool) !Chip_GPIO_GetPinState(LPC_GPIO_PORT, LED3_GPIO_PORT_NUM, LED3_GPIO_BIT_NUM);
+	}
+	else if (LEDNumber == 3) {
+		return (bool) !Chip_GPIO_GetPinState(LPC_GPIO_PORT, LED4_GPIO_PORT_NUM, LED4_GPIO_BIT_NUM);
 	}
 
 	return false;
