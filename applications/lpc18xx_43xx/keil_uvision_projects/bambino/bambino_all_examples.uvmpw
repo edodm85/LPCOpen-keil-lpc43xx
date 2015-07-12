@@ -23,7 +23,7 @@
   <project>
     <PathAndName>.\periph\periph_blinky\periph_blinky.uvproj</PathAndName>
   </project>
-  
+
   <project>
     <PathAndName>.\periph\periph_ethernet\periph_ethernet.uvproj</PathAndName>
   </project>
@@ -70,12 +70,12 @@
 
   <project>
     <PathAndName>.\periph\periph_systick\periph_systick.uvproj</PathAndName>
-  </project>  
+  </project>
 
   <project>
     <PathAndName>.\periph\periph_timers\periph_timers.uvproj</PathAndName>
-  </project>  
-  
+  </project>
+
   <project>
     <PathAndName>.\periph\periph_uart\periph_uart.uvproj</PathAndName>
   </project>
